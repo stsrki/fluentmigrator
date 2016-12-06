@@ -44,6 +44,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <DocumentationFile>bin\Debug\FluentMigrator.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -339,7 +341,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Builders\Create\Table\ICreateTableColumnOptionOrWithColumnSyntax.cs" />
     <Compile Include="Builders\Create\Table\ICreateTableColumnAsTypeSyntax.cs" />
-    <Compile Include="VersionTableInfo\IVersionTableMetaDataExtended.cs" />
     <Compile Include="VersionTableInfo\VersionTableMetaDataAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
