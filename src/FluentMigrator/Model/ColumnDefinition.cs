@@ -30,6 +30,8 @@ namespace FluentMigrator.Model
             DefaultValue = new UndefinedDefaultValue();
         }
 
+        [CLSCompliant(false)]
+        [Obsolete("Use the AdditionalFeatures property instead")]
         public readonly Dictionary<string, object> _additionalFeatures = new Dictionary<string, object>();
 
         public virtual string Name { get; set; }
@@ -49,6 +51,7 @@ namespace FluentMigrator.Model
         public virtual string TableName { get; set; }
         public virtual ColumnModificationType ModificationType { get; set; }
         public virtual string ColumnDescription { get; set; }
+        public virtual string CollationName { get; set; }
 
         public void ApplyConventions(IMigrationConventions conventions)
         {
@@ -76,7 +79,12 @@ namespace FluentMigrator.Model
 
         public IDictionary<string, object> AdditionalFeatures
         {
-            get { return _additionalFeatures; }
+            get
+            {
+#pragma warning disable 618
+                return _additionalFeatures;
+#pragma warning restore 618
+            }
         }
 
         void ISupportAdditionalFeatures.AddAdditionalFeature(string feature, object value)
